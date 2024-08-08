@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://blog.ezdata.top/img/blog-684748_640.jpg">
 <meta property="article:published_time" content="2024-08-07T10:27:02.000Z">
-<meta property="article:modified_time" content="2024-08-08T02:12:23.622Z">
+<meta property="article:modified_time" content="2024-08-08T07:46:34.514Z">
 <meta property="article:author" content="average Joe">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary_large_image">
@@ -159,6 +159,18 @@
               <a class="nav-link" href="https://calibre.ezdata.top" target="_self">
                 <i class="iconfont icon-link-fill"></i>
                 <span>ebooks</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://playground.ai.cloudflare.com/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>llama 3</span>
               </a>
             </li>
           
@@ -307,7 +319,7 @@
 <h3 id="托管DNS"><a href="#托管DNS" class="headerlink" title="托管DNS"></a>托管DNS</h3><p>托管DNS是为了在CF上可以更方便地用它。登录Cloudflare后:<br>添加站点 → 输入购买的域名 → DNS记录 → Cloudflare名称服务器， 复制NS值 → 回Namesilo;<br>Namesilo: Manage My Domains → domain manager → 选择刚刚买的域名 → NameServer 1, 2 修改为 Cloudflare 的NS 1，2 剩余的NameServer全部删除 → 至此，DNS托管到Cloudflare了。<br>NameSilo每年来续下费就好，其它没它什么事了。DNS设置好，一般几个小时之内就可以正常使用了。</p>
 <h3 id="域名的其它用途"><a href="#域名的其它用途" class="headerlink" title="域名的其它用途"></a>域名的其它用途</h3><ul>
 <li>如果自己有NAS，可以将域名解析到NAS的公网IP，从而在外网使用自己的数据。比起群晖的Quickconnect不知道要快到哪里去了。Blog也可以将NAS上的各种应用的Link放在上面，怕要爽到家了。</li>
-<li>利用CF的邮箱功能，开设自己的邮箱服务。比如自己的域名是example.com; 设个<a href="mailto:&#x75;&#x73;&#101;&#x72;&#49;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;">&#x75;&#x73;&#101;&#x72;&#49;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a>的一次性邮箱，在注册各种网站时使用，可以避免后续无穷无尽的垃圾信息。</li>
+<li>利用CF的邮箱功能，开设自己的邮箱服务。比如自己的域名是example.com; 设个<a href="mailto:&#x75;&#x73;&#101;&#114;&#49;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x75;&#x73;&#101;&#114;&#49;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a>的一次性邮箱，在注册各种网站时使用，可以避免后续无穷无尽的垃圾信息。</li>
 <li>私有云随时备份手机照片，手机的内存再也不是问题了。</li>
 </ul>
 <h3 id="安装Node-js-Git-Hexo-Visual-Studio-Code"><a href="#安装Node-js-Git-Hexo-Visual-Studio-Code" class="headerlink" title="安装Node.js, Git, Hexo, Visual Studio Code"></a>安装Node.js, Git, Hexo, Visual Studio Code</h3><p>静态Blog可用不同的技术实现，比如Jekyll, Hugo, Hexo等。Hexo可以在本地PC上调试好，再上传到Github上，命令少，相对容易记，这次就选它了。<br>N年来用习惯了图形界面，鼠标操作，一下回到命令行，多少有点陌生。<br>按顺序安装： node.js → Git → Hexo → Visual Studio Code</p>
@@ -333,22 +345,21 @@
 <p>hexo clean   &#x2F;&#x2F;清除缓存。有时明明修改了内容，浏览器看到的却是旧版，多数跟缓存有关，稍等一下刷新就好。<br>hexo server  &#x2F;&#x2F;可以省略为 hexo s</p>
 <p>再次用浏览器打开<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>  即可看到修改的的主题。<br>多尝试几个，找到自己喜欢的。</p>
 <h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p>首先要安装说上面的图片插件hexo-asset-image, 然后修改：_config.yml    →    post_asset_folder: true，使每个Post均有独立文件夹，将需要的本地图片放在其中。post中引用图片的有4种方法，可参考<a href="https://fuhailin.github.io/Hexo-images/" target="_blank" rel="nofollow noopener"><span>Github赵大宝的网页</span></a>。以下是其中2种：</p>
-<blockquote><p>方法1： ：</p>
-<pre><code class="hljs">   &lt;div align=right&gt;         // 对齐方式： right, center, left
-   &lt;img src=&quot;image.png&quot; width=&quot;100%&quot; height=&quot;100%&quot; title=&quot;text&quot; alt=&quot;alternative text.&quot;/&gt;   //文件名，比例,替代名
-   &lt;/div&gt;
-</code></pre>
-<p>方法2： 引号中的部分</p>
-<pre><code class="hljs">   &quot; ![显示的名字] (/images/image.jpg )&quot;
-</code></pre>
-</blockquote>
-
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus">方法<span class="hljs-number">1</span>：<br>     &lt;<span class="hljs-selector-tag">div</span> align=<span class="hljs-attribute">right</span>&gt;         // 对齐方式： right, center, left<br>     &lt;<span class="hljs-selector-tag">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;image.png&quot;</span> width=<span class="hljs-string">&quot;100%&quot;</span> height=<span class="hljs-string">&quot;100%&quot;</span> title=<span class="hljs-string">&quot;text&quot;</span> alt=<span class="hljs-string">&quot;alternative text.&quot;</span>/&gt;   //文件名，比例,替代名<br>     &lt;/div&gt;<br><br>方法<span class="hljs-number">2</span>： <br>      !<span class="hljs-selector-attr">[显示的名字]</span>(/images/<span class="hljs-selector-tag">image</span><span class="hljs-selector-class">.jpg</span> )<br></code></pre></td></tr></table></figure>
 
 <h2 id="3-上传Github"><a href="#3-上传Github" class="headerlink" title="3. 上传Github"></a>3. 上传Github</h2><h3 id="创建新仓库repository"><a href="#创建新仓库repository" class="headerlink" title="创建新仓库repository"></a>创建新仓库repository</h3><p>打开 <a href="https://github.com/" target="_blank" rel="nofollow noopener"><span>Github官网</span></a>。<br>新建一个repository(仓库)，名称必须严格按照 username.github.io 的格式来命名。 直接创建，不需要修改内容。</p>
 <h3 id="创建密钥-Key"><a href="#创建密钥-Key" class="headerlink" title="创建密钥 Key"></a>创建密钥 Key</h3><p>命令行： ssh-keygen -t ed25519 -C “email address”</p>
 <p>其中，ed25519是选择的密钥算法。密钥算法有好多，rsa、ed25519等等，ed25519从速度和安全性都好过rsa; rsa的用的人多，兼容性更好。</p>
 <p>按提示填写生成的文件路径和文件名，生成一个.pub文件。打开之后，复制全部内容。<br>回Github，选择刚刚创造的 repository（仓库） → Setting → Deploy Keys → Add deploy key，随便取个名字，将复制的内容粘贴在Key里面，保存。</p>
-<h3 id="部署上线"><a href="#部署上线" class="headerlink" title="部署上线"></a>部署上线</h3><p>回到 visual studio code<br>打开 .config.yml 最下部 Deployment，修改为：<br>deploy:<br>     type: ‘git’<br>     repo: <a target="_blank" rel="noopener" href="https://github.com/username/username.github.io">https://github.com/username/username.github.io</a>    →  把username换成自己的帐户名<br>     branch: master<br>保存。</p>
+<h3 id="部署上线"><a href="#部署上线" class="headerlink" title="部署上线"></a>部署上线</h3><p>回到 visual studio code<br>打开 .config.yml 最下部 Deployment，修改为：</p>
+<blockquote>
+<pre><code class="hljs">   deploy:
+   type: &#39;git&#39;
+   repo: https://github.com/username/username.github.io    →  把username换成自己的帐户名
+   branch: master
+</code></pre>
+<p>保存。</p>
+</blockquote>
 <p>回到命令行：<br>hexo clean        &#x2F;&#x2F; 清除缴存<br>hexo generate     &#x2F;&#x2F; 可省略为hexo g, 重新生成静态文件<br>hexo deploy       &#x2F;&#x2F; 可省略为hexo d, 上传到Github， 之后每次有修改，或写了新blog都这样上传更新后的文件。</p>
 <p>至此，blog已经可以在<a target="_blank" rel="noopener" href="https://username.github.io正常访问了/">https://username.github.io正常访问了</a>    →  把username换成自己的帐户名<br>Github也可以把域名改成自己的。如果不想用Cloudflare的福利，blog至此完工。</p>
 <p>另外，若身处宋国，连接不了Github实属正常；如果得到这样的结果：<br>fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/username/username.github.io/">https://github.com/username/username.github.io/</a>‘: Failed to connect to github.com port 443 after 21096 ms: Couldn’t connect to server  </p>
@@ -453,6 +464,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/08/08/blog4/" title="一小时学会Markdown">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">一小时学会Markdown</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
